@@ -41,12 +41,10 @@ class StudentsGrades:
 
 if __name__ == "__main__":
     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
-
-    print(results.count())  # 9
-    print(results.get_by_index(2))# 91
-    print(results.get_grade(2))
-    print(results.find(100))  # [6]
-    print(results.find(50))  # [4]
-    print(results.find(77))
-    print(results.get_sorted())  # [38, 42, 50, 58, 67, 73, 85, 91, 100]
-    print(results.scores)  # [85, 42, 91, 67, 50, 73, 100, 38, 58]  ← beze změny
+    pocet_testu = results.count()
+    print(pocet_testu)
+    vysledky = results.scores
+    for i, x in enumerate(vysledky):
+        print(f"Student {i}: {x} points - {results.get_grade(i)}")
+    print(results.find(100))
+    print(results.get_sorted())
