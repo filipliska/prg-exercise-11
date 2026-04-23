@@ -22,6 +22,7 @@ class StudentsGrades:
             return "E"
         else:
             return "F"
+
     def find(self, find):
         indexy = []
         for i, x in enumerate(self.scores):
@@ -29,6 +30,14 @@ class StudentsGrades:
                 indexy.append(i)
         return indexy
 
+    def get_sorted(self):
+        val2 = self.scores.copy()
+        x = len(val2)
+        for i in range(x):
+            for j in range(0, x - 1 - i):
+                if val2[j] > val2[j + 1]:
+                    val2[j], val2[j + 1] = val2[j + 1], val2[j]
+        return val2
 
 if __name__ == "__main__":
     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
@@ -39,3 +48,5 @@ if __name__ == "__main__":
     print(results.find(100))  # [6]
     print(results.find(50))  # [4]
     print(results.find(77))
+    print(results.get_sorted())  # [38, 42, 50, 58, 67, 73, 85, 91, 100]
+    print(results.scores)  # [85, 42, 91, 67, 50, 73, 100, 38, 58]  ← beze změny
